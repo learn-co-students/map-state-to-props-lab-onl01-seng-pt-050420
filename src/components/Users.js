@@ -10,12 +10,13 @@ class Users extends Component {
           {this.props.users.map(user => {
             return (
             <li key={user.id}>
-              {user.username}
+              User: {user.username}
               {", "}
-              {user.hometown}
+              Hometown: {user.hometown}
             </li>)
           })}
-          {this.props.users.length}
+          <br/>
+          Total Users: {this.props.users.length}
         </ul>
       </div>
     )
