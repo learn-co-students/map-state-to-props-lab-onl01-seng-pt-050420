@@ -53,117 +53,117 @@ describe('the application', () => {
     expect(wrapper.find(Users).find('li').length).to.equal(0);
   });
 
-  // it('displays users kept within the store', () => {
-  //   store = createStore(manageUsers)
-  //   store.dispatch({type: 'ADD_USER', user: {username: "Maxwell", hometown: "Manhattan"}})
-  //   store.dispatch({type: 'ADD_USER', user: {username: "Fran", hometown: "Queens"}})
-  //   const wrapper = mount(
-  //     <Provider store={store}>
-  //       <App />
-  //     </Provider>
-  //   );
-  //   expect(wrapper.find(Users).find('li').length).to.equal(2);
-  //   expect(wrapper.find(Users).html()).to.include('Maxwell')
-  //   expect(wrapper.find(Users).html()).to.include('Fran')
-  // });
+  it('displays users kept within the store', () => {
+    store = createStore(manageUsers)
+    store.dispatch({type: 'ADD_USER', user: {username: "Maxwell", hometown: "Manhattan"}})
+    store.dispatch({type: 'ADD_USER', user: {username: "Fran", hometown: "Queens"}})
+    const wrapper = mount(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+    expect(wrapper.find(Users).find('li').length).to.equal(2);
+    expect(wrapper.find(Users).html()).to.include('Maxwell')
+    expect(wrapper.find(Users).html()).to.include('Fran')
+  });
 
-  // it('updates the props as more users are added to the stores state', () => {
-  //   store = createStore(manageUsers)
-  //   const wrapper = mount(
-  //     <Provider store={store}>
-  //       <App />
-  //     </Provider>
-  //   );
-  //   store.dispatch({
-  //     type: 'ADD_USER',
-  //     user: {
-  //       username: 'Will',
-  //       hometown: 'Philadelphia'
-  //     }
-  //   });
+  it('updates the props as more users are added to the stores state', () => {
+    store = createStore(manageUsers)
+    const wrapper = mount(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+    store.dispatch({
+      type: 'ADD_USER',
+      user: {
+        username: 'Will',
+        hometown: 'Philadelphia'
+      }
+    });
 
-  //   wrapper.update()
-  //   let WrapperUsers = wrapper.find(Users).first();
+    wrapper.update()
+    let WrapperUsers = wrapper.find(Users).first();
 
-  //   expect(wrapper.find(Users).html()).to.include('Will')
-  // });
+    expect(wrapper.find(Users).html()).to.include('Will')
+  });
 
-  // it('lists the total number of users that have been added to the store', () => {
-  //   store = createStore(manageUsers)
-  //   const wrapper = mount(
-  //     <Provider store={store}>
-  //       <App />
-  //     </Provider>
-  //   );
+  it('lists the total number of users that have been added to the store', () => {
+    store = createStore(manageUsers)
+    const wrapper = mount(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
 
-  //   store.dispatch({
-  //     type: 'ADD_USER',
-  //     user: {
-  //       username: 'Batman',
-  //       hometown: 'Gotham'
-  //     }
-  //   });
+    store.dispatch({
+      type: 'ADD_USER',
+      user: {
+        username: 'Batman',
+        hometown: 'Gotham'
+      }
+    });
 
-  //   store.dispatch({
-  //     type: 'ADD_USER',
-  //     user: {
-  //       username: 'Superman',
-  //       hometown: 'Metropolis'
-  //     }
-  //   });
-  //   store.dispatch({
-  //     type: 'ADD_USER',
-  //     user: {
-  //       username: 'Dredd',
-  //       hometown: 'Mega-City One'
-  //     }
-  //   });
-  //   store.dispatch({
-  //     type: 'ADD_USER',
-  //     user: {
-  //       username: 'Goku',
-  //       hometown: 'Planet Vegeta'
-  //     }
-  //   });
-  //   store.dispatch({
-  //     type: 'ADD_USER',
-  //     user: {
-  //       username: 'Spiderman',
-  //       hometown: 'New York City'
-  //     }
-  //   });
-  //   store.dispatch({
-  //     type: 'ADD_USER',
-  //     user: {
-  //       username: 'Luca',
-  //       hometown: 'Suffern'
-  //     }
-  //   });
-  //   store.dispatch({
-  //     type: 'ADD_USER',
-  //     user: {
-  //       username: 'Lola',
-  //       hometown: 'Chestnut Ridge'
-  //     }
-  //   });
+    store.dispatch({
+      type: 'ADD_USER',
+      user: {
+        username: 'Superman',
+        hometown: 'Metropolis'
+      }
+    });
+    store.dispatch({
+      type: 'ADD_USER',
+      user: {
+        username: 'Dredd',
+        hometown: 'Mega-City One'
+      }
+    });
+    store.dispatch({
+      type: 'ADD_USER',
+      user: {
+        username: 'Goku',
+        hometown: 'Planet Vegeta'
+      }
+    });
+    store.dispatch({
+      type: 'ADD_USER',
+      user: {
+        username: 'Spiderman',
+        hometown: 'New York City'
+      }
+    });
+    store.dispatch({
+      type: 'ADD_USER',
+      user: {
+        username: 'Luca',
+        hometown: 'Suffern'
+      }
+    });
+    store.dispatch({
+      type: 'ADD_USER',
+      user: {
+        username: 'Lola',
+        hometown: 'Chestnut Ridge'
+      }
+    });
 
-  //   wrapper.update()
+    wrapper.update()
 
-  //   expect(wrapper.find(Users).html()).to.include('7')
+    expect(wrapper.find(Users).html()).to.include('7')
 
 
-  //   store.dispatch({
-  //     type: 'ADD_USER',
-  //     user: {
-  //       username: 'Peach',
-  //       hometown: 'Brewster'
-  //     }
-  //   });
+    store.dispatch({
+      type: 'ADD_USER',
+      user: {
+        username: 'Peach',
+        hometown: 'Brewster'
+      }
+    });
 
-  //   wrapper.update()
+    wrapper.update()
 
-  //   expect(wrapper.find(Users).html()).to.include('8')
+    expect(wrapper.find(Users).html()).to.include('8')
 
-  // });
+  });
 
 });
